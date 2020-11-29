@@ -1,0 +1,26 @@
+.my-image {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+}
+
+.pokemon-card .header {
+    background-color: orange;
+}
+
+.pokemon-card {
+    width: 260px;
+    height: auto;
+    margin: auto;
+    margin-top: 140px;
+
+}
+
+.btn-primary {
+    background-color: steelblue;
+    outline-style: none;
+}
+
+.btn-primary:hover {
+    background-color: rgb(51, 94, 129);
+}

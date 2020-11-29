@@ -1,0 +1,12 @@
+.my-header {
+    background-color: steelblue;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: steelblue;
+    color: white;
+    text-align: center;
+    z-index: 5;
+}

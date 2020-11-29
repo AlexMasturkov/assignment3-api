@@ -1,0 +1,32 @@
+.my-card {
+    background-color: whitesmoke;
+    width: 8rem;
+    height: 8rem;
+}
+
+.my-card:hover {
+    background-color: orange;
+}
+
+section {
+    margin-top: 100px;
+}
+
+.card-title {
+    background-color: steelblue;
+    opacity: 0.9;
+    color: white;
+    bottom: 0px;
+    position: relative;
+    top: 104px;
+    width: 8rem;
+
+
+}
+
+.card-img {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-left: 10px;
+}

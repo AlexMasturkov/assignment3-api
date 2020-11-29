@@ -1,34 +1,43 @@
 import React, { Component } from 'react';
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 class PokemonImage extends Component {
-  state = {
-    allimages: '',
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: '',
+      allimages: '',
+      error: '',
+    };
+  }
+  setError = (element) => {
+    this.setState({
+      error: element.target.value,
+    });
+  };
+  setLoading = (element) => {
+    this.setState({
+      loading: element.target.value,
+    });
   };
 
   componentDidMount() {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${this.props.pkimage}`)
       .then((response) => {
-        console.log(response.data.sprites.back_default);
         this.setState({ allimages: response.data.sprites.back_default });
-        console.log(this.allimages);
+      })
+      .catch((error) => {
+        // console.log(error.response);
+        const { status, data } = error.response;
+        this.setLoading(false);
+        this.setError(`${status} ${data}`);
       });
   }
-
   render() {
     return (
-      <div className="container">
-        <div className="row m-0">
-          {/* <div className="col-5 bg-warning">{this.props.pkimage}</div> */}
-          {/* <div className="col-5 bg-warning">{this.state.allimages}</div> */}
-          <img src={this.state.allimages} alt="" />
-        </div>
-
-        <hr />
-      </div>
+      <img className="card-img mb-3" src={this.state.allimages} alt="pokemon" />
     );
   }
 }
