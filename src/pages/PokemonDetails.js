@@ -35,7 +35,7 @@ const PokemonDetails = () => {
   // console.log(pokemon);
 
   return (
-    <div>
+    <section>
       {loading && <Loading />}
       {!loading && error && (
         <div className="text-center">
@@ -54,16 +54,26 @@ const PokemonDetails = () => {
               src={pokemon.sprites.back_default}
               alt=""
             />
-            <p>Height: {pokemon.height || '--'}</p>
-            <p>Base experience: {pokemon.base_experience || '--'}</p>
-            <p>Weight: {pokemon.weight || '--'}</p>
+            <div>Height: {pokemon.height || '--'}</div>
+            <div>Base experience: {pokemon.base_experience || '--'}</div>
+            <div>Weight: {pokemon.weight || '--'}</div>
+            <p className="text-center">
+              {' '}
+              {pokemon.stats.map((item, index) => (
+                <div className="" key={index}>
+                  {' '}
+                  Base: {item.base_stat} Name: {item.stat.name}{' '}
+                </div>
+              ))}
+            </p>
+
             <Link to="/" className="btn btn-primary mb-2 text-white">
               Go Back
             </Link>
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 
